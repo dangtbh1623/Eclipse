@@ -49,6 +49,8 @@ public void Drucken()
 	System.out.println("Nummer: " + kontonummer + "; Kontostand: " + kontostand);
 }
 
+public enum Geschlecht {Male, Female}
+
 public String toString()
 {
 	return kontonummer + " " + kontostand;}

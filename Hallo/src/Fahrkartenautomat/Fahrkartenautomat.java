@@ -2,7 +2,7 @@ package Fahrkartenautomat;
 
 public class Fahrkartenautomat {
 	private static final int[] muenzenWert = {200,100,50,20,10,5};
-	private static final String[] muenzenName = {"2 Euro","1 Euro","50 Cent","20 Cent","10 Cent","5 Cent"};
+	private static final String[] muenzenName = {"2Euro","1Euro","50Cent","20Cent","10Cent","5Cent"};
 	
 	public Fahrkartenautomat()
 	{
@@ -25,7 +25,10 @@ public class Fahrkartenautomat {
 	{
 		int[] rueckgeld = berechneRueckgeld(FahrPreis,GeldBetrag);
 		for(int i=0;i<rueckgeld.length;i++)
+		{	
+			if(rueckgeld[i]!=0)
 			System.out.print(rueckgeld[i] + "*" + muenzenName[i] + " ");
+		}
 		System.out.println();
 	}
 	

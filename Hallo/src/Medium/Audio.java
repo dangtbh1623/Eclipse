@@ -26,4 +26,9 @@ public class Audio extends Medium {
 
 	}
 
+	@Override
+	public String druckeDatenalsString() {
+		return "ID = " + getId() + " \"" + getTitel() + "\" " + "von " + getInterpret() + " aus " + getJahr() + " Spieldauer: " + getDauer();
+	}
+
 }

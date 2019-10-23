@@ -21,4 +21,9 @@ public class Bild extends Medium {
 		this.ort = ort;
 	}
 
+	@Override
+	public String druckeDatenalsString() {
+		return "ID = " + getId() + " \"" + getTitel() + "\" " + "aufgenommen im Jahr " + getJahr() + " in " + getOrt();
+	}
+
 }

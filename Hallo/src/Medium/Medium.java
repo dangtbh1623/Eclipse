@@ -2,7 +2,7 @@ package Medium;
 
 import java.util.Calendar;
 
-public abstract class Medium {
+public abstract class Medium implements Comparable<Medium> {
 	private static int anzMedium;
 	private int id;
 	private String titel;
@@ -40,5 +40,11 @@ public abstract class Medium {
 		System.out.println("ID = " + getId() + " \"" + getTitel() + "\" " + "ist " + alter() + " Jahre alt");
 	}
 	public abstract void druckeDaten();
+	public abstract String druckeDatenalsString();
+	
+	public int compareTo(Medium other)
+	{
+		return Integer.compare(getId(), other.getId());	
+	}
 
 }

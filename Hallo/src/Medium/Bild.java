@@ -1,5 +1,9 @@
 package Medium;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+
 public class Bild extends Medium {
 	private String ort;
 	public Bild(String t, int j, String o) {
@@ -24,6 +28,25 @@ public class Bild extends Medium {
 	@Override
 	public String druckeDatenalsString() {
 		return "ID = " + getId() + " \"" + getTitel() + "\" " + "aufgenommen im Jahr " + getJahr() + " in " + getOrt();
+	}
+
+	@Override
+	public void druckeDatenToFile(OutputStream s) {
+		// TODO Auto-generated method stub
+		String t = "ID = " + getId() + " \"" + getTitel() + "\" " + "aufgenommen im Jahr " + getJahr() + " in " + getOrt() + "\n";
+		OutputStreamWriter sw = new OutputStreamWriter(s);
+		try {
+			sw.write(t.toCharArray());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			sw.flush();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

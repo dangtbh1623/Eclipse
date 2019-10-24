@@ -1,5 +1,6 @@
 package Medium;
 
+import java.io.OutputStream;
 import java.util.Calendar;
 
 public abstract class Medium implements Comparable<Medium> {
@@ -41,6 +42,7 @@ public abstract class Medium implements Comparable<Medium> {
 	}
 	public abstract void druckeDaten();
 	public abstract String druckeDatenalsString();
+	public abstract void druckeDatenToFile(OutputStream s);
 	
 	public int compareTo(Medium other)
 	{

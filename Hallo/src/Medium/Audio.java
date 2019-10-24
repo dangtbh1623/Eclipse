@@ -1,5 +1,9 @@
 package Medium;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+
 public class Audio extends Medium {
 	private String interpret;
 	private int dauer;
@@ -29,6 +33,25 @@ public class Audio extends Medium {
 	@Override
 	public String druckeDatenalsString() {
 		return "ID = " + getId() + " \"" + getTitel() + "\" " + "von " + getInterpret() + " aus " + getJahr() + " Spieldauer: " + getDauer();
+	}
+
+	@Override
+	public void druckeDatenToFile(OutputStream s) {
+		// TODO Auto-generated method stub
+		String t = "ID = " + getId() + " \"" + getTitel() + "\" " + "von " + getInterpret() + " aus " + getJahr() + " Spieldauer: " + getDauer() + "\n";
+		OutputStreamWriter sw = new OutputStreamWriter(s);
+		try {
+			sw.write(t.toCharArray());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			sw.flush();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

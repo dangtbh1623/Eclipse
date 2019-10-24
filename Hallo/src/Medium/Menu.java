@@ -8,7 +8,7 @@ public class Menu {
 	public Menu (MedienverwaltungsCollection mvc)
 	{
 		this.mvc = mvc;
-		this.menu = "\tMedienverwaltung \n\n1. Audio aufnehmen\n2. Bild aufnehmen\n3.Zeige alle Medien\n4.Zeige neues Medium\n5.Berechne durchschnittliches Erscheinungsjahr\n6. Beenden";
+		this.menu = "\tMedienverwaltung \n\n1. Audio aufnehmen\n2. Bild aufnehmen\n3.Zeige alle Medien\n4.Zeige neues Medium\n5.Berechne durchschnittliches Erscheinungsjahr\n6. Speichern\n7. Beenden";
 	}
 	
 	public void start()
@@ -16,7 +16,13 @@ public class Menu {
 		int auswahl = 0;
 		do {
 		String eingabe = JOptionPane.showInputDialog(null, menu);
+		try {
 		auswahl = Integer.parseInt(eingabe);
+		}
+		catch(NumberFormatException e)
+		{
+			JOptionPane.showMessageDialog(null, "Bitte nur ein Zahl eingeben!");
+		}
 		boolean ok = true;
 		int j = 0;
 		int d = 0;
@@ -73,9 +79,12 @@ public class Menu {
 			case 5:
 				JOptionPane.showMessageDialog(null,mvc.berechneErscheinungsjahr());
 				break;
+			case 6:
+				mvc.zeigeMedienAlsDatei();
+				break;
 			default:
 				break;
 			}
-	}while(auswahl!=6);
+	}while(auswahl!=7);
 }
 }

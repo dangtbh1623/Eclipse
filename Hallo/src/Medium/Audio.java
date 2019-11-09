@@ -8,11 +8,26 @@ public class Audio extends Medium {
 	private String interpret;
 	private int dauer;
 	
+	public Audio()
+	{
+		
+	}
+	
 	public Audio(String t, int j, String i, int d) {
 		super(t, j);
 		this.interpret = i;
 		this.dauer = d;
 		// TODO Auto-generated constructor stub
+	}
+	
+	public void setInterpret(String interpret)
+	{
+		this.interpret = interpret;
+	}
+	
+	public void setDauer(int dauer)
+	{
+		this.dauer = dauer;
 	}
 
 	public String getInterpret()

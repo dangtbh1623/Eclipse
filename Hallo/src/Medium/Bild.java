@@ -6,6 +6,12 @@ import java.io.OutputStreamWriter;
 
 public class Bild extends Medium {
 	private String ort;
+	
+	public Bild()
+	{
+		
+	}
+	
 	public Bild(String t, int j, String o) {
 		super(t, j);
 		setOrt(o);

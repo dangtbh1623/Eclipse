@@ -8,7 +8,7 @@ public class Menu {
 	public Menu (MedienverwaltungsCollection mvc)
 	{
 		this.mvc = mvc;
-		this.menu = "\tMedienverwaltung \n\n1. Audio aufnehmen\n2. Bild aufnehmen\n3.Zeige alle Medien\n4.Zeige neues Medium\n5.Berechne durchschnittliches Erscheinungsjahr\n6. Speichern\n7. Beenden";
+		this.menu = "\tMedienverwaltung \n\n1. Audio aufnehmen\n2. Bild aufnehmen\n3. Zeige alle Medien\n4. Zeige neues Medium\n5. Berechne durchschnittliches Erscheinungsjahr\n6. Als Text Speichern\n7. Laden\n8. Speichern\n9. Beenden";
 	}
 	
 	public void start()
@@ -82,9 +82,15 @@ public class Menu {
 			case 6:
 				mvc.zeigeMedienAlsDatei();
 				break;
+			case 7:
+				mvc.laden();
+				break;
+			case 8:
+				mvc.speichern();
+				break;
 			default:
 				break;
 			}
-	}while(auswahl!=7);
+	}while(auswahl!=9);
 }
 }

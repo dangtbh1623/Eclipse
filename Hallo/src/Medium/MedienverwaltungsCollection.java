@@ -1,19 +1,26 @@
 package Medium;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
+
 import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.JOptionPane;
 
-public class MedienverwaltungsCollection {
-	private static final Comparator JahrVergleicher = null;
+public class MedienverwaltungsCollection  {
+	
+
+	
 	List<Medium> arraylist;
 	public MedienverwaltungsCollection()
 	{
@@ -79,6 +86,26 @@ public class MedienverwaltungsCollection {
 			throw new EmptyFileNameException("Name ist leer!!!");
 	}
 	
+	public void zeigeMedienAlsDateiGUI(String name)
+	{
+		
+		
+		Iterator<Medium> it = arraylist.iterator();
+		File to = new File("C:\\Users\\aznyo\\git\\repository2\\Hallo\\src\\CopyFile\\" + name);
+		OutputStream out;
+		try {
+			out = new FileOutputStream(to);
+			while(it.hasNext())
+			{
+					it.next().druckeDatenToFile(out);
+			}	
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
 	public void zeigeMedienAlsDatei()
 	{
 		boolean ok = false;
@@ -136,6 +163,47 @@ public class MedienverwaltungsCollection {
 	{
 		Collections.sort(arraylist,new JahrVergleicher());
 		zeigeMedien();
+	}
+	
+	public void speichern()
+	{
+		File sfile = new File("C:\\Users\\aznyo\\git\\repository2\\Hallo\\src\\CopyFile\\medium.ser");
+		try(FileOutputStream fos = new FileOutputStream(sfile);
+				ObjectOutputStream oos = new ObjectOutputStream(fos))
+		{
+			oos.writeObject(arraylist);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void laden()
+	{
+		
+		File sfile = new File("C:\\Users\\aznyo\\git\\repository2\\Hallo\\src\\CopyFile\\medium.ser");
+		try(FileInputStream fis = new FileInputStream(sfile);
+				ObjectInputStream ois = new ObjectInputStream(fis))
+		{
+			arraylist = (List<Medium>) ois.readObject();	
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public Iterator<Medium> iterator()
+	{
+		return arraylist.iterator();
 	}
 	
 

@@ -1,13 +1,24 @@
 package Medium;
 
 import java.io.OutputStream;
+import java.io.Serializable;
 import java.util.Calendar;
 
-public abstract class Medium implements Comparable<Medium> {
+public abstract class Medium implements Comparable<Medium>, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static int anzMedium;
 	private int id;
 	private String titel;
 	private int jahr;
+	
+	public Medium()
+	{
+		
+	}
+	
 	public Medium(String t, int j) {
 		id = anzMedium++;
 		setTitel(t);

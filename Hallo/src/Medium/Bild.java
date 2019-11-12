@@ -9,7 +9,7 @@ public class Bild extends Medium {
 	
 	public Bild()
 	{
-		
+		super();
 	}
 	
 	public Bild(String t, int j, String o) {

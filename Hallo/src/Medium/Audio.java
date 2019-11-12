@@ -10,7 +10,7 @@ public class Audio extends Medium {
 	
 	public Audio()
 	{
-		
+		super();
 	}
 	
 	public Audio(String t, int j, String i, int d) {

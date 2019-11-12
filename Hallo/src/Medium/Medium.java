@@ -16,7 +16,7 @@ public abstract class Medium implements Comparable<Medium>, Serializable {
 	
 	public Medium()
 	{
-		
+		id = anzMedium++;
 	}
 	
 	public Medium(String t, int j) {
